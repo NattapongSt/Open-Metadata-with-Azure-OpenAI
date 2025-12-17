@@ -1,0 +1,42 @@
+services:
+  mcp-server:
+    build:
+      context: ./mcp-server-openmetadata
+      dockerfile: Dockerfile
+    image: mcp-server-openmetadata
+    pull_policy: never
+    container_name: mcp-server-container
+    # ports:
+    #   - "8000:8000"
+    networks: 
+      - mcp-network
+    # healthcheck:
+    #   test: ["CMD-SHELL", "python -c \"import socket; s = socket.socket(); s.connect(('localhost', 8000)); s.close()\""]
+    #   interval: 5s
+    #   timeout: 5s
+    #   retries: 10
+    #   start_period: 5s
+
+  backend-client:
+    build: 
+      context: ./mcp-backend
+      dockerfile: Dockerfile
+    image: backend-openmetadata
+    pull_policy: never
+    container_name: backend-client-container
+    networks: 
+      - mcp-network
+    ports:
+      - "8010:8010" 
+    environment:
+      - SSE_ENDPOINT=http://mcp-server:8000/sse
+    depends_on:
+      - mcp-server
+        # condition: service_healthy
+
+# -------------------------------------------------------
+# Network Definition (สร้างวง LAN ส่วนตัว)
+# -------------------------------------------------------
+networks:
+  mcp-network:
+    driver: bridge

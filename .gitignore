@@ -1,0 +1,10 @@
+docker-compose-nginx.yml
+nginx.conf
+venv/
+backend-env/
+core-*.py
+test/
+Dockerfile-backup
+mcp-server-openmetadata/.github
+__pycache__/
+*.docx
