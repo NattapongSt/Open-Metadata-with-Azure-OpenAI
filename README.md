@@ -48,6 +48,12 @@ Before running, need to configure environment variables. You can set them in a `
  - `AZURE_OPENAI_ENDPOINT`: Azure OpenAI Endpoint.
  - `AZURE_DEPLOYMENT_NAME`: The model deployment name.
 
+**Database** Microsoft SQL Server
+ - `DATABASE_HOST`: Database host
+ - `DATABASE_NAME`: Database name
+ - `DATABASE_USER`: username
+ - `DATABASE_PASSWORD`: password
+ - `DATABASE_HISTORY_TABLE`: Database table
 ---
 
 ## Installation & Running
