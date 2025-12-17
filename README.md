@@ -65,5 +65,5 @@ Before running, need to configure environment variables. You can set them in a `
     ```
 
 2. **Verify Status**
-    - **MCP Server:** Should be running on port 8000 (internal).
-    - **Backend Client:** Should be accessible at http://localhost:8010
+ - **MCP Server:** Should be running on port 8000 (internal).
+ - **Backend Client:** Should be accessible at http://localhost:8010
